@@ -7,20 +7,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import Switch from '@mui/material/Switch';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
 export default function NavBar() {
-  const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -32,18 +25,6 @@ export default function NavBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <FormGroup>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={auth}
-              onChange={handleChange}
-              aria-label="login switch"
-            />
-          }
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -56,9 +37,8 @@ export default function NavBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Photos
+            Nooshi
           </Typography>
-          {auth && (
             <div>
               <IconButton
                 size="large"
@@ -68,7 +48,7 @@ export default function NavBar() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <ShoppingCartIcon />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -89,7 +69,6 @@ export default function NavBar() {
                 <MenuItem onClick={handleClose}>My account</MenuItem>
               </Menu>
             </div>
-          )}
         </Toolbar>
       </AppBar>
     </Box>
