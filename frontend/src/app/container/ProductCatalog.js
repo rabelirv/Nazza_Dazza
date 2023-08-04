@@ -15,10 +15,8 @@ export default function ProductCatalog() {
 
     const productCards = products.map((product,i) => <ProductCard key={i} title={product.title} price={product.price} description={product.description} image={product.image}/>)
   return (
-   <>
-    <div className="w-full grid-cols-3 border-solid border-2 border-green">
+    <div className="w-full grid grid-cols-3 gap-8 place-self-auto">
         {productCards}
     </div>
-   </>
   )
 }
